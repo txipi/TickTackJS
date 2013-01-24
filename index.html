@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Ticktackjs : TickTackJS" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ticktackjs</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/txipi/TickTackJS">View on GitHub</a>
+
+          <h1 id="project_title">Ticktackjs</h1>
+          <h2 id="project_tagline">TickTackJS</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/txipi/TickTackJS/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/txipi/TickTackJS/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>TickTackJS</h1>
+
+<p>Timer &amp; timing function analysis library for JavaScript</p>
+
+<h1>Overview</h1>
+
+<p>TickTackJS is a timer &amp; timing function analysis library for JavaScript.</p>
+
+<p>TickTackJS allows to perform tests on timers and timing functions to get the monotonicity, granularity (cluster-based analysis) and cost of call. It also provides several kinds of plots of gathered results (in a Flot-compatible JSON format).</p>
+
+<h1>Features</h1>
+
+<p>Data gathering</p>
+
+<ul>
+<li>Logging</li>
+<li>Benchmarking</li>
+</ul><p>Data preprocessing</p>
+
+<ul>
+<li>Diffs</li>
+<li>Cluster detection</li>
+</ul><p>Stats</p>
+
+<ul>
+<li>Maximum</li>
+<li>Minimum</li>
+<li>Mean</li>
+<li>Median</li>
+<li>Q1</li>
+<li>Q3</li>
+<li>Standard deviation</li>
+<li>Standard Error of Mean</li>
+<li>Histogram</li>
+</ul><p>Plots</p>
+
+<ul>
+<li>Raw data plot.</li>
+<li>Diff data plot.</li>
+<li>Raw data histogram plot.</li>
+<li>Diff data histogram plot.</li>
+</ul><h1>How to use it</h1>
+
+<p>Include TickTackJS and Flot + jQuery:</p>
+
+<pre><code>&lt;script language="javascript" type="text/javascript" src="js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" type="text/javascript" src="js/jquery.flot.min.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" type="text/javascript" src="js/ticktack.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Create a TickTackJS Dataset:</p>
+
+<pre><code>var test = new TickTack.Test('Test Date');
+</code></pre>
+
+<p>Benchmark a timing function:</p>
+
+<pre><code>test.benchmark(function () { return +new Date; }, 1000);
+</code></pre>
+
+<p>Analyze data:</p>
+
+<pre><code>test.analyze();
+</code></pre>
+
+<p>Get monotonicity, granularity and cost of the timing function call:</p>
+
+<pre><code>console.log(test.getMonotonicity(), test.getGranularity(), test.getCost());
+</code></pre>
+
+<p>Generate a plot (it will be placed in a div with id='plot1'):</p>
+
+<pre><code>var plot1 = test.test.getDataPlot(test.dataset, 1)
+$.plot($('#plot1'), plot1.values, plot1.options);
+</code></pre>
+
+<h1>Acknowledgements</h1>
+
+<p>Plots are created using Flot, a pure Javascript plotting library for jQuery, by Ole Laursen <a href="http://code.google.com/p/flot/">http://code.google.com/p/flot/</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ticktackjs maintained by <a href="https://github.com/txipi">txipi</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
